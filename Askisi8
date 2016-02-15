@@ -1,0 +1,20 @@
+pinakas2 = [[0 for x in xrange(8)] for x in xrange(8)]
+file_in = open ("input.txt")
+for line in file_in:
+    line = line.replace("'" , "")
+    line = line.replace("][" , ", ")
+    line = line.replace("]" , "")
+    line = line.replace("[" , "")
+file_in.close()
+pinakas = line.split(", ")
+x=0
+for i in range(8):
+    for j in range(8):
+        pinakas2[i][j]= pinakas[x]
+        x +=1
+rotated90 = zip(*pinakas2[::-1])
+print rotated90
+rotated180 = zip(*rotated90[::-1])
+print rotated180
+rotated270 = zip(*rotated180[::-1])
+print rotated270
